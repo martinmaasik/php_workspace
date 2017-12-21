@@ -12,15 +12,15 @@ class OverviewController extends Controller
         $this->middleware('admin');
     }
 
-    public function index()
+    public function indexOverview()
     {
         return view('admin/overview/index');
     }
 
     public function filter(Request $request)
     {
-        dd($request->all());
-        return view('admin/overview/index');
+        // dd($request->all());
+        return view('admin/overview/index', $request);
     }
 
 
