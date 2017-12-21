@@ -12,9 +12,9 @@ class OverviewController extends Controller
         $this->middleware('admin');
     }
 
-    public function overview()
+    public function index()
     {
-        return view('admin/overview');
+        return view('admin/overview/index');
     }
 
 
