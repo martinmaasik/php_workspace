@@ -3,7 +3,7 @@
 <?php include(app_path().'/includes/dates.php');
 $editableReports = DB::table('ppp_reports')
                     ->where('user', Auth::user()->name)->where('period', $lastWeek)
-                    ->orwhere('user', Auth::user()->name)->where('period', $weekBeforeLast)
+                    ->orwhere('user', Auth::user()->name)->where('period', $thisWeek)
                     ->pluck('period'); ?>
 
   <div class="container">

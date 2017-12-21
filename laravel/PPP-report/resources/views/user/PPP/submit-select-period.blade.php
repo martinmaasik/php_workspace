@@ -2,7 +2,7 @@
 @section('content')
 <?php include(app_path().'/includes/dates.php');
 $lastWeekSubmitted = DB::table('ppp_reports')->where('user', Auth::user()->name)->where('period', $lastWeek)->count();
-$weekBeforeLastSubmitted = DB::table('ppp_reports')->where('user', Auth::user()->name)->where('period', $weekBeforeLast)->count(); ?>
+$thisWeekSubmitted = DB::table('ppp_reports')->where('user', Auth::user()->name)->where('period', $thisWeek)->count(); ?>
 
   <div class="container">
       <div class="row">
@@ -14,26 +14,26 @@ $weekBeforeLastSubmitted = DB::table('ppp_reports')->where('user', Auth::user()-
                       {{ csrf_field() }}
                       <div class="form-group">
 
-                        @if ($lastWeekSubmitted == 0 && $weekBeforeLastSubmitted == 0)
+                        @if ($lastWeekSubmitted == 0 && $thisWeekSubmitted == 0)
                           Select period:<br>
                           <select name="period">
+                            <option value="{{ $thisWeek }}">{{ $thisWeek }}</option>
                             <option value="{{ $lastWeek }}">{{ $lastWeek }}</option>
-                            <option value="{{ $weekBeforeLast }}">{{ $weekBeforeLast }}</option>
                           </select><br>
                           @include('user\PPP\submit-questions')
 
                         @elseif ($lastWeekSubmitted == 0)
                           Reports can be submitted for only last 2 weeks.
-                          <br><i>- you have already submitted a report for {{ $weekBeforeLast }}. (<b><a href="{{ route('PPP.edit.get') }}">EDIT</a></b>)</i>
+                          <br><i>- you have already submitted a report for {{ $thisWeek }}. (<b><a href="{{ route('PPP.edit.get') }}">EDIT</a></b>)</i>
                           <br><br>Period: <b>{{ $lastWeek }}</b><br>
                           <input type="hidden" name="period" value="{{ $lastWeek }}">
                           @include('user\PPP\submit-questions')
 
-                        @elseif ($weekBeforeLastSubmitted == 0)
+                        @elseif ($thisWeekSubmitted == 0)
                           Reports can be submitted for only last 2 weeks.
                           <br><i>- you have already submitted a report for {{ $lastWeek }}. (<b><a href="{{ route('PPP.edit.get') }}">EDIT</a></b>)</i>
-                          <br><br>Period: <b>{{ $weekBeforeLast }}</b><br>
-                          <input type="hidden" name="period" value="{{ $weekBeforeLast }}">
+                          <br><br>Period: <b>{{ $thisWeek }}</b><br>
+                          <input type="hidden" name="period" value="{{ $thisWeek }}">
                           @include('user\PPP\submit-questions')
 
                         @else

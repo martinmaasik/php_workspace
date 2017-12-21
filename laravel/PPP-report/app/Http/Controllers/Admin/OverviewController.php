@@ -17,5 +17,11 @@ class OverviewController extends Controller
         return view('admin/overview/index');
     }
 
+    public function filter(Request $request)
+    {
+        dd($request->all());
+        return view('admin/overview/index');
+    }
+
 
 };

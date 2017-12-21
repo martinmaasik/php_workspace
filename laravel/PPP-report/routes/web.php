@@ -32,5 +32,6 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/success', 'Admin\AdminController@success')->name('success');
     Route::get('/failed', 'Admin\AdminController@failed')->name('failed');
     Route::get('/overview', 'Admin\OverviewController@index')->name('overview.get');
+    Route::post('/overview', 'Admin\OverviewController@filter')->name('overview.filter');
 
 });
