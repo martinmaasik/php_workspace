@@ -19,9 +19,18 @@ class OverviewController extends Controller
 
     public function filter(Request $request)
     {
-        // dd($request->all());
-        return view('admin/overview/index', $request);
+        $filteredData = $request->all();
+        return view('admin/overview/index', ['filteredData' => $filteredData]);
     }
 
+    public function indexTest()
+    {
+        return view('admin/overview/test');
+    }
+
+    public function postTest(Request $request)
+    {
+        dd($request->all());
+    }
 
 };

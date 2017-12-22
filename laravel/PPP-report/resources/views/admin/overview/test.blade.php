@@ -15,7 +15,8 @@ function showCheckboxes() {
 
 <?php $users = DB::table('users')->where('admin', 0)->pluck('name');?>
 
-<form>
+<form class="form-horizontal" method="POST" action="{{ route('test.post') }}">
+  {{ csrf_field() }}
   <div class="multiselect">
     <div class="selectBox" onclick="showCheckboxes()">
       <select>
@@ -25,9 +26,10 @@ function showCheckboxes() {
     </div>
     <div id="checkboxes">
       @foreach ($users as $user)
-        <label for><input name="{{ $user }}" type="checkbox" /> {{ $user }}</label>
+        <label for><input name="{{ $user }}" type="checkbox" />{{ $user }}</label>
       @endforeach
 
     </div>
   </div>
+  <input type="submit" value="Filter"></td>
 </form>

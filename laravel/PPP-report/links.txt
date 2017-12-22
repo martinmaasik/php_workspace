@@ -1,2 +1,3 @@
 https://www.w3schools.com/css/css_dropdowns.asp
 https://stackoverflow.com/questions/17014066/mysql-query-to-select-events-between-start-end-date
+https://stackoverflow.com/questions/17714705/how-to-use-checkbox-inside-select-option

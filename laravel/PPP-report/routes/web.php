@@ -34,4 +34,10 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::get('/overview', 'Admin\OverviewController@indexOverview')->name('overview.get');
     Route::post('/overview', 'Admin\OverviewController@filter')->name('overview.filter');
 
+
+
+    Route::get('/test', 'Admin\OverviewController@indexTest')->name('test.get');
+    Route::post('/test', 'Admin\OverviewController@postTest')->name('test.post');
+
+
 });

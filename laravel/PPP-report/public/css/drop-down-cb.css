@@ -1,0 +1,35 @@
+.multiselect {
+  width: 150px;
+  position: absolute;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 150px;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: none;
+  border: 1px #D3D3D3 solid;
+  background-color: #FFFFFF;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+// tegele alignimisega

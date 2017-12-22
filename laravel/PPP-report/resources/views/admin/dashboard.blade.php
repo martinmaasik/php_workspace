@@ -11,6 +11,7 @@
                   <button type="button" style="width:300px" onclick="window.location='{{ URL::route('create.get') }}'">Create a new user</button><br>
                   <button type="button" style="width:300px" onclick="window.location='{{ URL::route('edit.get') }}'">Edit or delete users</button><br>
                   <button type="button" style="width:300px" onclick="window.location='{{ URL::route('overview.get') }}'">Overview</button><br>
+                  <button type="button" style="width:300px" onclick="window.location='{{ URL::route('test.get') }}'">Test</button><br>
                 </form>
               </div>
             </div>
