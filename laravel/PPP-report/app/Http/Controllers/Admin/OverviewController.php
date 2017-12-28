@@ -20,6 +20,7 @@ class OverviewController extends Controller
     public function filter(Request $request)
     {
         $filteredData = $request->all();
+        // selle array ma pean objectiks tegema
         return view('admin/overview/index', ['filteredData' => $filteredData]);
     }
 

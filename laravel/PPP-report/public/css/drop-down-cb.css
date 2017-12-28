@@ -27,6 +27,7 @@
 
 #checkboxes label {
   display: block;
+  padding-left: 5%;
 }
 
 #checkboxes label:hover {

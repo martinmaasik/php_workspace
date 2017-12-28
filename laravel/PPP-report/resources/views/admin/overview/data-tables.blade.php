@@ -33,5 +33,3 @@
       <td align="center" style="width:5%">{{ $dataEntry->trials }}</td><td align="center" style="width:5%">{{ $dataEntry->deals }}</td></tr>
     @endforeach
 </table>
-
-@include('redirect-buttons/back')
