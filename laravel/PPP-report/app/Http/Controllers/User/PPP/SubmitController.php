@@ -27,6 +27,8 @@ class SubmitController extends Controller
         $PPP_report = new PPP_report;
         $PPP_report->user = $request->user;
         $PPP_report->period = $request->period;
+        $PPP_report->period_start = $request->period_start;
+        $PPP_report->period_end = $request->period_end;
         $PPP_report->emails = $request->emails;
         $PPP_report->calls = $request->calls;
         $PPP_report->demos = $request->demos;

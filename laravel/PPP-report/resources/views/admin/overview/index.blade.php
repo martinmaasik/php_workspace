@@ -2,9 +2,12 @@
 @section('content')
 
 <link href="{{ asset('/css/tables.css') }}" rel="stylesheet">
+<?php use App\PPP_report; ?>
+
 @if (empty($filteredData))
-  <?php $filteredData = DB::table('ppp_reports')->get()?>
+  <?php $filteredData = PPP_report::all(); ?>
 @endif
+
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -18,7 +21,6 @@
                                     <td>Start date: <input name="start-date" type="date"> End date: <input name="end-date" type="date"></td><td width=160px>@include('admin\overview\manager-selection')</td><td><input type="submit" value="Filter"></td>
                                 </table><br>
                           </form>
-                          {{ var_dump($filteredData) }}
                           @include('admin/overview/data-tables')
                       @else
                             No PPP reports have been submitted yet.

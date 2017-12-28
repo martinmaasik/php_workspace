@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+<?php include(app_path().'/includes/dates.php'); ?>
   <div class="container">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">
@@ -10,6 +11,13 @@
                       {{ csrf_field() }}
                       <div class="form-group">
                         <input type="hidden" name="period" value="{{ $_POST['period'] }}">
+                        @if ($_POST['period'] == $thisWeek)
+                            <input type="hidden" name="period_start" value="{{ $thisWeekStart }}">
+                            <input type="hidden" name="period_end" value="{{ $thisWeekEnd }}">
+                        @else
+                            <input type="hidden" name="period_start" value="{{ $lastWeekStart }}">
+                            <input type="hidden" name="period_end" value="{{ $lastWeekEnd }}">
+                        @endif
                         <input type="hidden" name="emails" value="{{ $_POST['emails'] }}">
                         <input type="hidden" name="calls" value="{{ $_POST['calls'] }}">
                         <input type="hidden" name="demos" value="{{ $_POST['demos'] }}">

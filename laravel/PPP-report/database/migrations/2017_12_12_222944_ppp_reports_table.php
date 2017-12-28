@@ -17,6 +17,8 @@ class PPPReportsTable extends Migration
             $table->increments('id');
             $table->string('user');
             $table->string('period');
+            $table->date('period_start');
+            $table->date('period_end');
             $table->integer('emails')->nullable();
             $table->integer('calls')->nullable();
             $table->integer('demos')->nullable();

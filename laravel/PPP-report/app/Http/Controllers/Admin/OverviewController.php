@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
-use App\User;
+use App\PPP_report;
 use App\Http\Controllers\Controller;
 
 class OverviewController extends Controller
@@ -19,8 +19,13 @@ class OverviewController extends Controller
 
     public function filter(Request $request)
     {
-        $filteredData = $request->all();
-        // selle array ma pean objectiks tegema
+        $data = $request->all();
+        $filteredStartDate = date("Y-m-d", strtotime($data['start-date']));
+        $filteredEndDate = date("Y-m-d", strtotime($data['end-date']));
+        $filteredUsers = array_keys($data);
+        unset($filteredUsers[0], $filteredUsers[1], $filteredUsers[2]);
+        $filteredData = PPP_report::whereIn('user', $filteredUsers)->where('period_start', '>=', $filteredStartDate)->where('period_end', '<=', $filteredEndDate)->get();
+
         return view('admin/overview/index', ['filteredData' => $filteredData]);
     }
 

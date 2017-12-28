@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<?php $selectedViewableReport = DB::table('ppp_reports')
-                                ->where('period', $_POST['period'])->first() ?>
+<?php use App\PPP_report;
+      $selectedViewableReport = PPP_report::where('period', $_POST['period'])->first() ?>
 
   <div class="container">
       <div class="row">

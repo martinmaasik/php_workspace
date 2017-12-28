@@ -1,8 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <?php include(app_path().'/includes/dates.php');
-$lastWeekSubmitted = DB::table('ppp_reports')->where('user', Auth::user()->name)->where('period', $lastWeek)->count();
-$thisWeekSubmitted = DB::table('ppp_reports')->where('user', Auth::user()->name)->where('period', $thisWeek)->count(); ?>
+      use App\PPP_report;
+      $lastWeekSubmitted = PPP_report::where('user', Auth::user()->name)->where('period', $lastWeek)->count();
+      $thisWeekSubmitted = PPP_report::where('user', Auth::user()->name)->where('period', $thisWeek)->count(); ?>
 
   <div class="container">
       <div class="row">

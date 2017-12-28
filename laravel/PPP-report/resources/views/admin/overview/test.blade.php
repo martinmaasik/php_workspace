@@ -1,35 +1,29 @@
-<link href="{{ asset('/css/drop-down-cb.css') }}" rel="stylesheet">
-
 <script>
-var expanded = false;
-function showCheckboxes() {
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
-}
+
+$(document).ready(function() {
+    $("#dataStart").datepicker({
+        minDate: '+1d',
+        changeMonth: true,
+		changeYear: true,
+		dateFormat: 'mm/dd/yy',
+        onSelect: function(date){
+            var dates = date.split('/');
+            var lastDate = new Date(dates[2], dates[0], 0);
+            var y = lastDate.getFullYear(), m = lastDate.getMonth(), d = lastDate.getDate();
+            m = ('0'+ (m+1)).slice(-2);
+
+            $('#dataEnd').val(m+'/'+d+'/'+y);
+        }
+    });
+});
+
 </script>
 
-<?php $users = DB::table('users')->where('admin', 0)->pluck('name');?>
-
-<form class="form-horizontal" method="POST" action="{{ route('test.post') }}">
-  {{ csrf_field() }}
-  <div class="multiselect">
-    <div class="selectBox" onclick="showCheckboxes()">
-      <select>
-        <option>Select users</option>
-      </select>
-      <div class="overSelect"></div>
-    </div>
-    <div id="checkboxes">
-      @foreach ($users as $user)
-        <label for><input name="{{ $user }}" type="checkbox" />{{ $user }}</label>
-      @endforeach
-
-    </div>
-  </div>
-  <input type="submit" value="Filter"></td>
-</form>
+<fieldset>
+    <label for="dataStart">Start Date</label>
+    <input type="text" style="width: 88px;" class="datepicker" id="dataStart" size="10" name="dataStart" />
+</fieldset>
+<fieldset>
+    <label for="dataEnd">End Date</label>
+   <input type="text" style="width: 88px;" class="end_date" id="dataEnd" size="10" name="dataEnd" value="" readonly />
+</fieldset>

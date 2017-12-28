@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<?php $viewableReports = DB::table('ppp_reports')
-                        ->where('user', Auth::user()->name)->pluck('period');?>
+<?php use App\PPP_report;
+      $viewableReports = PPP_report::where('user', Auth::user()->name)->pluck('period');?>
 
   <div class="container">
       <div class="row">

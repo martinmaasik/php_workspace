@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<?php $users = DB::table('users')->where('admin', 0)->pluck('email'); ?>
+<?php use App\User;
+      $users = User::where('admin', 0)->pluck('email'); ?>
 
   <div class="container">
       <div class="row">
@@ -18,7 +19,7 @@
                             Select user:<br>
                               <select name="user">
                               @foreach ($users as $user)
-                                  <option value="{{ $user }}">{{ $user }} ({{ DB::table('users')->where('email', $user)->value('name') }})</option>
+                                  <option value="{{ $user }}">{{ $user }} ({{ User::where('email', $user)->value('name') }})</option>
                               @endforeach
                               </select>
                             </div>

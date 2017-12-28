@@ -1,3 +1,4 @@
+<?php use App\User; ?>
 <link href="{{ asset('/css/drop-down-cb.css') }}" rel="stylesheet">
 
 <script>
@@ -13,7 +14,7 @@ function showCheckboxes() {
 }
 </script>
 
-<?php $users = DB::table('users')->where('admin', 0)->pluck('name');?>
+<?php $users = User::where('admin', 0)->pluck('name'); ?>
 
 <form>
   <div class="multiselect">
