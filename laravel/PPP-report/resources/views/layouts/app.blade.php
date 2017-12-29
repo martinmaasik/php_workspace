@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <!-- {{ HTML::script('js/date.js') }} -->
 </head>
 <body>
     <div id="app">
