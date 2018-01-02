@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User\PPP;
 use App\PPP_report;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class SubmitController extends Controller
 {
@@ -14,12 +15,17 @@ class SubmitController extends Controller
 
     public function index()
     {
-        return view('user/PPP/submit-select-period');
+        include(app_path().'/includes/dates.php');
+        $lastWeekSubmitted = PPP_report::where('user', Auth::user()->name)->where('period', $lastWeek)->count();
+        $thisWeekSubmitted = PPP_report::where('user', Auth::user()->name)->where('period', $thisWeek)->count();
+        return view('user/PPP/submit-select-period', ['lastWeekSubmitted' => $lastWeekSubmitted,
+                                                      'thisWeekSubmitted' => $thisWeekSubmitted]);
     }
 
     public function select (Request $request)
     {
-        return view('user/PPP/submit');
+        $halfSubmittedData = $request->all();
+        return view('user/PPP/submit', ['halfSubmittedData' => $halfSubmittedData]);
     }
 
     public function submit (Request $request)

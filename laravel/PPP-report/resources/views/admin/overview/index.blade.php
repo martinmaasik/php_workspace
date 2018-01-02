@@ -2,11 +2,6 @@
 @section('content')
 
 <link href="{{ asset('/css/tables.css') }}" rel="stylesheet">
-<?php use App\PPP_report; ?>
-
-@if (empty($filteredData))
-  <?php $filteredData = PPP_report::all(); ?>
-@endif
 
 <div class="container">
     <div class="row">
@@ -17,9 +12,10 @@
                       @if (count($filteredData))
                           <form class="form-horizontal" method="POST" action="{{ route('overview.filter') }}">
                             {{ csrf_field() }}
-                                <table frame="void">
-                                    <td>Start date: <input name="start-date" type="date"> End date: <input name="end-date" type="date"></td><td width=160px>@include('admin\overview\manager-selection')</td><td><input type="submit" value="Filter"></td>
-                                </table><br>
+                                @include('admin/overview/date-range')
+                                @include('admin\overview\manager-selection')
+                                <input type="submit" value="Filter">
+                                <br>
                           </form>
                           @include('admin/overview/data-tables')
                       @else

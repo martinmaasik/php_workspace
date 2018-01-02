@@ -1,10 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<?php include(app_path().'/includes/dates.php');
-      use App\PPP_report;
-      $editableReports = PPP_report::where('user', Auth::user()->name)->where('period', $lastWeek)
-                    ->orwhere('user', Auth::user()->name)->where('period', $thisWeek)
-                    ->pluck('period'); ?>
 
   <div class="container">
       <div class="row">
@@ -15,6 +10,8 @@
                         @if ($editableReports->count() == 0)
                           There are no reports currently available for editing.<br>
                           Only last 2 weeks' reports can be edited.
+                          <br><br>
+                          @include('redirect-buttons\back')
                         @else
                           Only last 2 weeks' reports can be edited.<br>
                           <form role="form" method="POST" action="{{ route('PPP.edit.select') }}">

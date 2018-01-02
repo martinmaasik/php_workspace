@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<?php include(app_path().'/includes/dates.php');
-      use App\PPP_report;
-      $lastWeekSubmitted = PPP_report::where('user', Auth::user()->name)->where('period', $lastWeek)->count();
-      $thisWeekSubmitted = PPP_report::where('user', Auth::user()->name)->where('period', $thisWeek)->count(); ?>
-
+<?php include(app_path().'/includes/dates.php'); ?>
   <div class="container">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">

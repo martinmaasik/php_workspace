@@ -10,21 +10,21 @@
                     <form role="form" method="POST" action="{{ route('PPP.submit') }}">
                       {{ csrf_field() }}
                       <div class="form-group">
-                        <input type="hidden" name="period" value="{{ $_POST['period'] }}">
-                        @if ($_POST['period'] == $thisWeek)
+                        <input type="hidden" name="period" value="{{ $halfSubmittedData['period'] }}">
+                        @if ($halfSubmittedData['period'] == $thisWeek)
                             <input type="hidden" name="period_start" value="{{ $thisWeekStart }}">
                             <input type="hidden" name="period_end" value="{{ $thisWeekEnd }}">
                         @else
                             <input type="hidden" name="period_start" value="{{ $lastWeekStart }}">
                             <input type="hidden" name="period_end" value="{{ $lastWeekEnd }}">
                         @endif
-                        <input type="hidden" name="emails" value="{{ $_POST['emails'] }}">
-                        <input type="hidden" name="calls" value="{{ $_POST['calls'] }}">
-                        <input type="hidden" name="demos" value="{{ $_POST['demos'] }}">
-                        <input type="hidden" name="trials" value="{{ $_POST['trials'] }}">
-                        <input type="hidden" name="deals" value="{{ $_POST['deals'] }}">
+                        <input type="hidden" name="emails" value="{{ $halfSubmittedData['emails'] }}">
+                        <input type="hidden" name="calls" value="{{ $halfSubmittedData['calls'] }}">
+                        <input type="hidden" name="demos" value="{{ $halfSubmittedData['demos'] }}">
+                        <input type="hidden" name="trials" value="{{ $halfSubmittedData['trials'] }}">
+                        <input type="hidden" name="deals" value="{{ $halfSubmittedData['deals'] }}">
                         <input type="hidden" name="user" value="{{ Auth::user()->name }}">
-                        @if (($_POST['demos'] || $_POST['trials'] || $_POST['deals']) != "0")
+                        @if (($halfSubmittedData['demos'] || $halfSubmittedData['trials'] || $halfSubmittedData['deals']) != "0")
                           Demos/Trials/Deals notes:
                           <textarea name="notes" rows="5" cols="80" placeholder="Domain  ||  Status (demo/trial/deal)  ||  Traffic ||  Pricing"></textarea><br>
                         @endif

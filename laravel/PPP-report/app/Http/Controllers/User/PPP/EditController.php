@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\User\PPP;
-
 use Illuminate\Http\Request;
 use App\PPP_report;
 use App\Http\Controllers\Controller;
+use Auth;
 
 class EditController extends Controller
 {
@@ -15,11 +15,16 @@ class EditController extends Controller
 
     public function index()
     {
-        return view('user/PPP/edit-select-period');
+        include(app_path().'/includes/dates.php');
+        $editableReports = PPP_report::where('user', Auth::user()->name)->where('period', $lastWeek)
+                        ->orwhere('user', Auth::user()->name)->where('period', $thisWeek)
+                        ->pluck('period');
+        return view('user/PPP/edit-select-period', ['editableReports' => $editableReports]);
     }
     public function select (Request $request)
     {
-        return view('user/PPP/edit');
+        $selectedEditableReport = PPP_report::where('period', $request->period)->first();
+        return view('user/PPP/edit', ['selectedEditableReport' => $selectedEditableReport]);
     }
     public function submit (Request $request)
     {

@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<?php use App\PPP_report;
-      $selectedViewableReport = PPP_report::where('period', $_POST['period'])->first() ?>
-
   <div class="container">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">

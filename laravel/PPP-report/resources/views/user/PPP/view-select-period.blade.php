@@ -1,8 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<?php use App\PPP_report;
-      $viewableReports = PPP_report::where('user', Auth::user()->name)->pluck('period');?>
-
   <div class="container">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">

@@ -14,7 +14,8 @@ class OverviewController extends Controller
 
     public function indexOverview()
     {
-        return view('admin/overview/index');
+        $filteredData = PPP_report::all();
+        return view('admin/overview/index', ['filteredData' => $filteredData]);
     }
 
     public function filter(Request $request)
@@ -31,12 +32,6 @@ class OverviewController extends Controller
 
     public function indexTest()
     {
-        return view('admin/overview/test');
+        return view('admin/overview/test3');
     }
-
-    public function postTest(Request $request)
-    {
-        dd($request->all());
-    }
-
 };
