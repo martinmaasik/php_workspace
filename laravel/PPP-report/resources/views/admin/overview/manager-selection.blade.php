@@ -1,9 +1,8 @@
-<?php use App\User; ?>
+<?php use App\User;
+$users = User::where('admin', 0)->pluck('name');?>
 <link href="{{ asset('/css/drop-down-cb.css') }}" rel="stylesheet">
 
-<?php $users = User::where('admin', 0)->pluck('name'); ?>
-
-<form>
+<span>
   <div class="multiselect">
     <div class="selectBox" onclick="showCheckboxes()">
       <select>
@@ -18,6 +17,6 @@
 
     </div>
   </div>
-</form>
+</span>
 
 <script src="{{ asset('js/manager-selection.js') }}"></script>

@@ -1,5 +1,6 @@
 .multiselect {
-  width: 150px;
+  size: 30;
+  height: 50%;
   position: absolute;
 }
 
@@ -8,7 +9,7 @@
 }
 
 .selectBox select {
-  width: 150px;
+  width: auto;
 }
 
 .overSelect {
@@ -33,4 +34,3 @@
 #checkboxes label:hover {
   background-color: #1e90ff;
 }
-// tegele alignimisega

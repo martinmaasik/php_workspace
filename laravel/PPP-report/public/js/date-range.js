@@ -1,19 +1,25 @@
-$(document).ready(function() {
-  $("#startdate").datepicker({
-      autoSize: true,         // automatically resize the input field
-      altFormat: 'yy-mm-dd',  // Date Format used
-      firstDay: 1, // Start with Monday
-      beforeShowDay: function(date) {
-        return [date.getDay() === 1,''];}
-      }); // Allow only one day a week
-});
+function populateEndDate() {
+  var date2 = $('#dateStart').datepicker('getDate');
+  $("#dateEnd").datepicker("option", "minDate", date2);
+}
 
 $(document).ready(function() {
-  $("#enddate").datepicker({
-      autoSize: true,         // automatically resize the input field
-      altFormat: 'yy-mm-dd',  // Date Format used
-      firstDay: 1, // Start with Monday
-      beforeShowDay: function(date) {
-        return [date.getDay() === 0,''];}
-      }); // Allow only one day a week
+
+  $("#dateStart").datepicker({
+    dateFormat: 'yy-mm-dd',
+    firstDay: 1,
+    beforeShowDay: function(date) {
+      return [date.getDay() === 1,'']
+    },
+    onSelect: function(date) {
+      populateEndDate();
+    }
+  });
+  $('#dateEnd').datepicker({
+    dateFormat: 'yy-mm-dd',
+    beforeShowDay: function(date) {
+      return [date.getDay() === 0,'']
+    },
+    firstDay: 1,
+  });
 });

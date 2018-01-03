@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<link href="{{ asset('/css/tables.css') }}" rel="stylesheet">
 
 <div class="container">
     <div class="row">
@@ -11,17 +10,21 @@
                     <div class="panel-body">
                       @if (count($filteredData))
                           <form class="form-horizontal" method="POST" action="{{ route('overview.filter') }}">
-                            {{ csrf_field() }}
-                                @include('admin/overview/date-range')
-                                @include('admin\overview\manager-selection')<input type="submit" value="Filter">
-                                <br>
-                          </form>
+                              {{ csrf_field() }}
+                                  <table width="65%" frame="void">
+                                    <tr valign="top">
+                                      <td width=45%>@include('admin/overview/date-range')</td>
+                                      <td width=20%>@include('admin\overview\manager-selection')</td>
+                                      <td><input type="submit" value="Filter"></td>
+                                  </table>
+                            </form>
+                            <br>
                           @include('admin/overview/data-tables')
                       @else
                             No PPP reports have been submitted yet.
                       @endif
-                      <br><br>
-                      @include('redirect-buttons/back')
+                          @include('redirect-buttons/back')
+
                     </div>
             </div>
         </div>

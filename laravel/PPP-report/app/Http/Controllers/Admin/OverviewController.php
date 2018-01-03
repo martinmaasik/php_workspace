@@ -14,7 +14,8 @@ class OverviewController extends Controller
 
     public function indexOverview()
     {
-        $filteredData = PPP_report::all();
+        include(app_path().'/includes/dates.php');
+        $filteredData = PPP_report::where('period', $thisWeek)->get();
         return view('admin/overview/index', ['filteredData' => $filteredData]);
     }
 
@@ -32,6 +33,6 @@ class OverviewController extends Controller
 
     public function indexTest()
     {
-        return view('admin/overview/test3');
+        return view('admin/overview/test');
     }
 };
