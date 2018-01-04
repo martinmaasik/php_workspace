@@ -29,8 +29,8 @@ class OverviewController extends Controller
             $query = PPP_report::whereIn('user', $request->users)
                                 ->where('period_start', '>=', $request->start_date)
                                 ->where('period_end', '<=', $request->end_date);
-            return view('admin/overview/index', ['filteredData' => $filteredData = $query->get(),
-                                                'distinctUsers' => $distinctUsers = $query->distinct()->pluck('user')]);
+            return view('admin/overview/index', ['filteredData' => $query->get(),
+                                                'distinctUsers' => $query->distinct()->pluck('user')]);
         }
         else
         {
