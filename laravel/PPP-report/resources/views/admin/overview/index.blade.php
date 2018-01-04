@@ -10,7 +10,7 @@
                           <form class="form-horizontal" method="POST" action="{{ route('overview.filter') }}">
                               {{ csrf_field() }}
                                   @include('admin/overview/date-range')
-                                  @include('admin\overview\manager-selection')
+                                  @include('admin/overview/manager-selection')
                                   <input type="submit" value="Filter">
                             </form>
                             <br>

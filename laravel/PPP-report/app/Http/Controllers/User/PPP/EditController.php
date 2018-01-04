@@ -17,8 +17,8 @@ class EditController extends Controller
     {
         include(app_path().'/includes/dates.php');
         $editableReports = PPP_report::where('user', Auth::user()->name)->where('period', $lastWeek)
-                        ->orwhere('user', Auth::user()->name)->where('period', $thisWeek)
-                        ->pluck('period');
+                                      ->orwhere('user', Auth::user()->name)->where('period', $thisWeek)
+                                      ->pluck('period');
         return view('user/PPP/edit-select-period', ['editableReports' => $editableReports]);
     }
     public function select (Request $request)

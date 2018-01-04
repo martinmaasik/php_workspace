@@ -67,10 +67,10 @@ class AdminController extends Controller
               $data = $request->all();
               $validator = Validator::make($data, [
                       'name' => 'required|string|max:255',
-                      'email' => 'required|string|email|max:255',
+                      'email' => 'required|string|email|max:255', // this validator does not require unique email
                       'password' => 'required|string|min:6|confirmed',
               ]);
-
+              // so that admin could not change an user's email to an email address that is taken by another user already (basically another validator)
               if ($validator->fails() || User::where('email', $request->email)->count() == 1 && User::where('email', $request->email)->where('id', $request->id)->count() == 0)
               {
                     return redirect()->route('failed');

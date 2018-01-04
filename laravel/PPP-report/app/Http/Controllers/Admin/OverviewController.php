@@ -15,10 +15,10 @@ class OverviewController extends Controller
     public function indexOverview()
     {
         include(app_path().'/includes/dates.php');
-        $filteredData = PPP_report::where('period', $thisWeek)->get();
-        $unfiltered = true;
-        return view('admin/overview/index', ['filteredData' => $filteredData,
-                                            'unfiltered' => $unfiltered]);
+        $query = PPP_report::where('period', $thisWeek);
+        return view('admin/overview/index', ['filteredData' => $query->get(),
+                                            'distinctUsers' => $query->distinct()->pluck('user'),
+                                            'unfiltered' => true]); // $unfiltered is being set to retrieve view with correct elements
     }
 
     public function filter(Request $request)
@@ -26,15 +26,16 @@ class OverviewController extends Controller
         $data = $request->all();
         if (isset($request->start_date, $request->end_date, $request->users))
         {
-            $filteredData = PPP_report::whereIn('user', $request->users)->where('period_start', '>=', $request->start_date)->where('period_end', '<=', $request->end_date)->get();
-            return view('admin/overview/index', ['filteredData' => $filteredData]);
+            $query = PPP_report::whereIn('user', $request->users)
+                                ->where('period_start', '>=', $request->start_date)
+                                ->where('period_end', '<=', $request->end_date);
+            return view('admin/overview/index', ['filteredData' => $filteredData = $query->get(),
+                                                'distinctUsers' => $distinctUsers = $query->distinct()->pluck('user')]);
         }
         else
         {
-            $filteredData = NULL;
-            $unsetCriteria = true;
-            return view('admin/overview/index', ['filteredData' => $filteredData,
-                                                'unsetCriteria' => $unsetCriteria]);
+            return view('admin/overview/index', ['filteredData' => NULL,
+                                                'unsetCriteria' => true]); // $unsetCriteria is being set to retrieve view with correct elements
         }
     }
 
