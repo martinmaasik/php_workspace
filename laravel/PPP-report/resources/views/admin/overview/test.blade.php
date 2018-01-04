@@ -1,11 +1,12 @@
-<link href="{{ asset('/css/hover-over.css') }}" rel="stylesheet">
+@extends('layouts.app')
+@section('content')
 
-<body style="text-align:center;">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 
-<h2>Left Tooltip w/ Right Arrow</h2>
+<select class="selectpicker" multiple data-actions-box="true">
+  <option>Mustard</option>
+  <option>Ketchup</option>
+  <option>Relish</option>
+</select>
 
-<div class="tooltip">Hover over me
-  <span class="tooltiptext">Tooltip text</span>
-</div>
-
-</body>
+@endsection

@@ -1,27 +1,27 @@
 @extends('layouts.app')
 @section('content')
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Overview</div>
                     <div class="panel-body">
-                      @if (count($filteredData))
                           <form class="form-horizontal" method="POST" action="{{ route('overview.filter') }}">
                               {{ csrf_field() }}
-                                  <table width="65%" frame="void">
-                                    <tr valign="top">
-                                      <td width=45%>@include('admin/overview/date-range')</td>
-                                      <td width=20%>@include('admin\overview\manager-selection')</td>
-                                      <td><input type="submit" value="Filter"></td>
-                                  </table>
+                                  @include('admin/overview/date-range')
+                                  @include('admin\overview\manager-selection')
+                                  <input type="submit" value="Filter">
                             </form>
                             <br>
+                      @if (count($filteredData))
                           @include('admin/overview/data-tables')
+                      @elseif (isset($unfiltered))
+                          No PPP reports have been submitted this week.<br><br>
+                      @elseif (isset($unsetCriteria))
+                          Please set all filter criteria to view reports.<br><br>
                       @else
-                            No PPP reports have been submitted yet.
+                          No PPP reports match filter criteria. <br><br>
                       @endif
                           @include('redirect-buttons/back')
 

@@ -16,19 +16,26 @@ class OverviewController extends Controller
     {
         include(app_path().'/includes/dates.php');
         $filteredData = PPP_report::where('period', $thisWeek)->get();
-        return view('admin/overview/index', ['filteredData' => $filteredData]);
+        $unfiltered = true;
+        return view('admin/overview/index', ['filteredData' => $filteredData,
+                                            'unfiltered' => $unfiltered]);
     }
 
     public function filter(Request $request)
     {
         $data = $request->all();
-        $filteredStartDate = date("Y-m-d", strtotime($data['start-date']));
-        $filteredEndDate = date("Y-m-d", strtotime($data['end-date']));
-        $filteredUsers = array_keys($data);
-        unset($filteredUsers[0], $filteredUsers[1], $filteredUsers[2]);
-        $filteredData = PPP_report::whereIn('user', $filteredUsers)->where('period_start', '>=', $filteredStartDate)->where('period_end', '<=', $filteredEndDate)->get();
-
-        return view('admin/overview/index', ['filteredData' => $filteredData]);
+        if (isset($request->start_date, $request->end_date, $request->users))
+        {
+            $filteredData = PPP_report::whereIn('user', $request->users)->where('period_start', '>=', $request->start_date)->where('period_end', '<=', $request->end_date)->get();
+            return view('admin/overview/index', ['filteredData' => $filteredData]);
+        }
+        else
+        {
+            $filteredData = NULL;
+            $unsetCriteria = true;
+            return view('admin/overview/index', ['filteredData' => $filteredData,
+                                                'unsetCriteria' => $unsetCriteria]);
+        }
     }
 
     public function indexTest()
