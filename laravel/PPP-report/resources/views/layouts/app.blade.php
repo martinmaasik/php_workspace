@@ -12,10 +12,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
     <link href="{{ asset('css/date-range.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-select.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/hover-over.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/tables.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/tool-tip.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -86,9 +87,16 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        // checki kas jquery UI-s saab tooltipi disablida
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>
+    <script>
+      $('.selectpicker').tooltip('disable');
+      $('.selectpicker').tooltiptext('disable');
+    </script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script> -->
     <script src="{{ asset('js/date-range.js') }}"></script>
+    <script src="{{ asset('js/tool-tip.js') }}"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 
 </body>
 </html>

@@ -1,5 +1,3 @@
-<link href="{{ asset('/css/tables.css') }}" rel="stylesheet">
-
 @if (!isset($unfiltered))
 
     <table style="float:left" frame="void" width="48%">
@@ -82,11 +80,9 @@
     </td>
     <td align="center" style="width:10%">
         @if ($dataEntry->problems != "")
-        <div class="tooltip">Show
-          <span class="tooltiptext">
-            {{ $dataEntry->problems }}
-          </span>
-        </div>
+          <div class="tooltip">Hover over me
+              <span class="tooltiptext">Tooltip text</span>
+          </div>
         @else
           <i>n/a</i>
         @endif
