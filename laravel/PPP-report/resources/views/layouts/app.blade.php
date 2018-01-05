@@ -13,8 +13,9 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="{{ asset('css/date-range.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-select.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/hover-over.css') }}" rel="stylesheet">
 
 </head>
 <body>

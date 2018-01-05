@@ -82,7 +82,11 @@
     </td>
     <td align="center" style="width:10%">
         @if ($dataEntry->problems != "")
-          {{ $dataEntry->problems }}
+        <div class="tooltip">Show
+          <span class="tooltiptext">
+            {{ $dataEntry->problems }}
+          </span>
+        </div>
         @else
           <i>n/a</i>
         @endif
