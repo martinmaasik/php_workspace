@@ -73,16 +73,14 @@
     <td align="center" style="width:5%">{{ $dataEntry->deals }}</td>
     <td align="center" style="width:10%">
         @if ($dataEntry->notes != "")
-          {{ $dataEntry->notes }}
+          <div data-ot="{{$dataEntry->notes}}"><i><u>View</u></i></div>
         @else
           <i>n/a</i>
         @endif
     </td>
     <td align="center" style="width:10%">
         @if ($dataEntry->problems != "")
-          <div class="tooltip">Hover over me
-              <span class="tooltiptext">Tooltip text</span>
-          </div>
+          <div data-ot="{{$dataEntry->problems}}"><i><u>View</u></i></div>
         @else
           <i>n/a</i>
         @endif

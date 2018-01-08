@@ -38,9 +38,4 @@ class OverviewController extends Controller
                                                 'unsetCriteria' => true]); // $unsetCriteria is being set to retrieve view with correct elements
         }
     }
-
-    public function indexTest()
-    {
-        return view('admin/overview/test');
-    }
 };

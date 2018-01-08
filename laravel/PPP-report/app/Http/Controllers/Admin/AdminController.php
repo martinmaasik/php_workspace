@@ -48,12 +48,14 @@ class AdminController extends Controller
 
     public function indexEdit()
     {
-        return view('admin/edit-select');
+        $allUserData = User::where('admin', "0")->get();
+        return view('admin/edit-select', ['allUserData' => $allUserData]);
     }
 
-    public function selectEdit()
+    public function selectEdit(Request $request)
     {
-        return view('admin/edit');
+        $selectedUser = User::where('email', $request->user)->first();
+        return view('admin/edit', ['selectedUser' => $selectedUser]);
     }
 
     public function edit(Request $request)

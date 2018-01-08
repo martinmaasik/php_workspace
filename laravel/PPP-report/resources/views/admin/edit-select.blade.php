@@ -1,7 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<?php use App\User;
-      $users = User::where('admin', 0)->pluck('email'); ?>
+<link href="{{ asset('css/date-range.css') }}" rel="stylesheet">
 
   <div class="container">
       <div class="row">
@@ -9,7 +8,7 @@
               <div class="panel panel-default">
                   <div class="panel-heading">Edit or delete users</div>
                   <div class="panel-body">
-                        @if ($users->count() == 0)
+                        @if ($allUserData->count() == 0)
                           No users have been created yet.<br><br>
                           @include('redirect-buttons\back')
                         @else
@@ -18,8 +17,8 @@
                             <div class="form-group">
                             Select user:<br>
                               <select name="user">
-                              @foreach ($users as $user)
-                                  <option value="{{ $user }}">{{ $user }} ({{ User::where('email', $user)->value('name') }})</option>
+                              @foreach ($allUserData->where('admin', 0)->pluck('email') as $user)
+                                  <option value="{{ $user }}">{{ $user }} ({{ $allUserData->where('email', $user)->pluck('name')->first() }})</option>
                               @endforeach
                               </select>
                             </div>

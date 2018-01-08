@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<?php use App\User;
-      $selectedUser = User::where('email', $_POST['user'])->first(); ?>
 
 <div class="container">
     <div class="row">
