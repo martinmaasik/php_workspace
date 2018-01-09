@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-
   <div class="container">
       <div class="row">
           <div class="col-md-8 col-md-offset-2">
@@ -18,14 +17,14 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                             Select period:<br>
-                              <select name="period">
+                              <select name="period" id="soflow-color">
                               @foreach ($editableReports as $editableReport)
                                   <option value="{{ $editableReport }}">{{ $editableReport }}</option>
                               @endforeach
                               </select>
                             </div>
                             @include('redirect-buttons\back')
-                            <input type="submit" value="Edit">
+                            <input type="submit" class="btn btn-primary" value="Edit">
                           </form>
                         @endif
                   </div>

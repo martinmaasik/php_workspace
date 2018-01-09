@@ -31,7 +31,7 @@
                         Any problems?<br>
                         <textarea name="problems" rows="5" cols="80"></textarea><br>
                         @include('redirect-buttons\back')
-                        <input type="submit" value="Submit PPP report">
+                        <input type="submit" class="btn btn-primary" value="Submit PPP report">
                       </div>
                     </form>
                   </div>

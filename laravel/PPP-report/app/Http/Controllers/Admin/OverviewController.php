@@ -16,7 +16,7 @@ class OverviewController extends Controller
     {
         include(app_path().'/includes/dates.php');
         $query = PPP_report::where('period', $thisWeek);
-        return view('admin/overview/index', ['filteredData' => $query->get(),
+        return view('admin/overview/overview', ['filteredData' => $query->get(),
                                             'distinctUsers' => $query->distinct()->pluck('user'),
                                             'unfiltered' => true]); // $unfiltered is being set to retrieve view with correct elements
     }
@@ -29,12 +29,12 @@ class OverviewController extends Controller
             $query = PPP_report::whereIn('user', $request->users)
                                 ->where('period_start', '>=', $request->start_date)
                                 ->where('period_end', '<=', $request->end_date);
-            return view('admin/overview/index', ['filteredData' => $query->get(),
+            return view('admin/overview/overview', ['filteredData' => $query->get(),
                                                 'distinctUsers' => $query->distinct()->pluck('user')]);
         }
         else
         {
-            return view('admin/overview/index', ['filteredData' => NULL,
+            return view('admin/overview/overview', ['filteredData' => NULL,
                                                 'unsetCriteria' => true]); // $unsetCriteria is being set to retrieve view with correct elements
         }
     }

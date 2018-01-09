@@ -27,7 +27,7 @@
                       <input type="hidden" name="user" value="{{ Auth::user()->name }}">
                       <input type="hidden" name="period" value="{{ $selectedEditableReport->period }}">
                     @include('redirect-buttons\back')
-                    <input type="submit" value="Submit edited version">
+                    <input type="submit" class="btn btn-primary" value="Submit edited version">
                   </div>
               </div>
           </div>

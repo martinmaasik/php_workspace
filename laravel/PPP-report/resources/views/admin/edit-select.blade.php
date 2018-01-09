@@ -16,14 +16,15 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                             Select user:<br>
-                              <select name="user">
-                              @foreach ($allUserData->where('admin', 0)->pluck('email') as $user)
-                                  <option value="{{ $user }}">{{ $user }} ({{ $allUserData->where('email', $user)->pluck('name')->first() }})</option>
-                              @endforeach
+                              <select id="soflow-color" name="user">
+                                @foreach ($allUserData->where('admin', 0)->pluck('email') as $user)
+                                    <option value="{{ $user }}">{{ $user }} ({{ $allUserData->where('email', $user)->pluck('name')->first() }})</option>
+                                @endforeach
                               </select>
                             </div>
                             @include('redirect-buttons\back')
-                            <input type="submit" value="Edit/Delete">
+                            <input type="submit" name="button" value="Edit" class="btn btn-primary">
+                            <input type="submit" onclick="return confirm('Are you sure you want to delete the selected user?');" name="button" value="Delete" class="btn btn-danger">
                           </form>
                         @endif
                   </div>

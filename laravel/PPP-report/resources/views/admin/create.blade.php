@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 @include('redirect-buttons/back')
-                                <button type="submit">
+                                <button type="submit" class="btn btn-primary">
                                     Create user
                                 </button>
                             </div>

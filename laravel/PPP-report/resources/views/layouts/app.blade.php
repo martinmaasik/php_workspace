@@ -15,7 +15,7 @@
     <link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
     <link href="{{ asset('css/bootstrap-select.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/tables.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('/css/tool-tip.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('/css/dropdown.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/opentip.css') }}" rel="stylesheet" type="text/css" />
 
 </head>

@@ -11,7 +11,7 @@
                             {{ csrf_field() }}
                                 @include('admin/overview/date-range')
                                 @include('admin/overview/manager-selection')
-                                <button>Filter</button>
+                                <button class="btn btn-primary">Filter</button>
                           </form>
                           <br>
                       @if (count($filteredData))

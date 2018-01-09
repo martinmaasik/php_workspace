@@ -13,14 +13,14 @@
                             {{ csrf_field() }}
                             <div class="form-group">
                             Select period:<br>
-                              <select name="period">
+                              <select name="period" id="soflow-color">
                               @foreach ($viewableReports as $viewableReport)
                                 <option value="{{ $viewableReport }}">{{ $viewableReport }}</option>
                               @endforeach
                               </select>
                             </div>
                             @include('redirect-buttons\back')
-                            <input type="submit" value="View">
+                            <input type="submit" class="btn btn-primary" value="View">
                           </form>
                         @endif
                   </div>

@@ -9,9 +9,9 @@
               <div class="panel-body">
                 <form>
                   <div class="row">
-                    <div class="col-sm-4"><button type="button" style="width:100%" onclick="window.location='{{ URL::route('create.get') }}'">Create a new user</button></div>
-                    <div class="col-sm-4"><button type="button" style="width:100%" onclick="window.location='{{ URL::route('edit.get') }}'">Edit or delete users</button></div>
-                    <div class="col-sm-4"><button type="button" style="width:100%" onclick="window.location='{{ URL::route('overview.get') }}'">Overview</button></div>
+                    <div class="col-sm-4"><button type="button" class="btn btn-default" style="width:100%" onclick="window.location='{{ URL::route('create.get') }}'">Create a new user</button></div>
+                    <div class="col-sm-4"><button type="button" class="btn btn-default" style="width:100%" onclick="window.location='{{ URL::route('edit.get') }}'">Edit or delete users</button></div>
+                    <div class="col-sm-4"><button type="button" class="btn btn-default" style="width:100%" onclick="window.location='{{ URL::route('overview.get') }}'">Overview</button></div>
                   </div>
                 </form>
               </div>

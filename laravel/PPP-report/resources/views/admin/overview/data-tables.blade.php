@@ -4,9 +4,9 @@
         <td align="center" valign="bottom" height="40px"><i>Total</i></td>
     </table>
 
-    <table style="float:right" frame="void" width="48%">
-        <td align="center" valign="bottom" height="40px"><i>Average per week</i></td>
-    </table>
+      <table style="float:right" frame="void" width="48%">
+          <td align="center" valign="bottom" height="40px"><i>Average per week</i></td>
+      </table>
 
     <table style="float:left" frame="void" width="48%">
         <td align="center">Name</td>

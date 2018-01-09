@@ -9,4 +9,4 @@ How many trials were started?<br>
 How many deals were closed?<br>
 <input type="number" name="deals" min="0" max="999" value="0"><br><br>
 @include('redirect-buttons\back')
-<input type="submit" value="Next">
+<input type="submit" class="btn btn-primary" value="Next">
