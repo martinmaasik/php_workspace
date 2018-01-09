@@ -89,7 +89,6 @@
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
     <script src="{{ asset('js/date-range.js') }}"></script>
-    <script src="{{ asset('js/tool-tip.js') }}"></script>
     <script src="{{ asset('js/opentip.js') }}"></script>
 
 </body>
